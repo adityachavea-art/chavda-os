@@ -1,58 +1,54 @@
+"use client";
+
 import {
-  ArrowUpRight,
-  DollarSign,
-  Users,
-  Wallet,
+  Bell,
   CheckCircle2,
-  TrendingUp,
+  FileText,
+  NotebookPen,
+  Plus,
+  User,
 } from "lucide-react";
 
-const stats = [
+const todayTasks = [
   {
-    title: "Total Revenue",
-    value: "₹12.4L",
-    growth: "+18.2%",
-    icon: DollarSign,
-  },
-  {
-    title: "Active Clients",
-    value: "128",
-    growth: "+9.4%",
-    icon: Users,
-  },
-  {
-    title: "Pending Invoices",
-    value: "24",
-    growth: "+3.1%",
-    icon: Wallet,
-  },
-  {
-    title: "Completed Tasks",
-    value: "342",
-    growth: "+21.7%",
-    icon: CheckCircle2,
-  },
-];
-
-const recentClients = [
-  {
-    name: "Reliance Industries",
-    company: "Enterprise Client",
-    amount: "₹4.2L",
-    status: "Paid",
-  },
-  {
-    name: "Tata Motors",
-    company: "Automobile Division",
-    amount: "₹2.8L",
+    title: "File GSTR-1 for Mahadev Traders",
+    time: "10:30 AM",
     status: "Pending",
   },
   {
-    name: "Infosys Ltd",
-    company: "Technology Partner",
-    amount: "₹1.9L",
-    status: "Paid",
+    title: "Call client for GST notice",
+    time: "12:00 PM",
+    status: "Important",
   },
+  {
+    title: "Send invoice to Rakesh Patel",
+    time: "3:15 PM",
+    status: "Done",
+  },
+];
+
+const reminders = [
+  {
+    client: "Jay Enterprise",
+    work: "GST Return",
+    due: "Tomorrow",
+  },
+  {
+    client: "Amit Shah",
+    work: "ITR Filing",
+    due: "22 May",
+  },
+  {
+    client: "Pooja Textile",
+    work: "Payment Follow-up",
+    due: "Today",
+  },
+];
+
+const quickNotes = [
+  "Renew DSC before month end",
+  "Call GST officer regarding notice",
+  "Check pending TDS entries",
 ];
 
 export default function DashboardPage() {
@@ -60,154 +56,195 @@ export default function DashboardPage() {
     <div className="space-y-8">
       {/* HERO */}
 
-      <div className="flex items-center justify-between rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#111318] to-[#0B0D11] p-8">
-        <div>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-400">
-            Business Overview
-          </p>
+      <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-blue-400">
+              Personal Workspace
+            </p>
 
-          <h1 className="mt-4 text-5xl font-black tracking-tight">
-            Welcome back, Aditya 👋
-          </h1>
+            <h1 className="mt-4 text-5xl font-black tracking-tight">
+              Welcome back, Aditya 👋
+            </h1>
 
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-400">
-            Monitor business performance, manage clients,
-            track finances and automate workflows from one
-            unified workspace.
-          </p>
-        </div>
+            <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+              Manage your daily work, reminders, invoices,
+              follow-ups and notes from one clean workspace.
+            </p>
+          </div>
 
-        <div className="hidden h-44 w-44 items-center justify-center rounded-full bg-blue-500/10 lg:flex">
-          <TrendingUp className="h-20 w-20 text-blue-400" />
+          <div className="flex gap-3">
+            <button className="flex items-center gap-2 rounded-2xl bg-blue-500 px-5 py-3 font-medium text-white transition hover:opacity-90">
+              <Plus className="h-5 w-5" />
+              Add Task
+            </button>
+
+            <button className="flex items-center gap-2 rounded-2xl border border-white/[0.08] px-5 py-3 text-zinc-300 transition hover:bg-white/[0.04]">
+              <FileText className="h-5 w-5" />
+              New Invoice
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* STATS */}
+      {/* QUICK STATS */}
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {stats.map((item) => {
-          const Icon = item.icon;
-
-          return (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-white/[0.06] bg-[#111318] p-6"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10">
-                  <Icon className="h-7 w-7 text-blue-400" />
-                </div>
-
-                <div className="flex items-center gap-1 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
-                  <ArrowUpRight className="h-3 w-3" />
-
-                  {item.growth}
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <p className="text-sm text-zinc-500">
-                  {item.title}
-                </p>
-
-                <h2 className="mt-2 text-4xl font-bold tracking-tight">
-                  {item.value}
-                </h2>
-              </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-6">
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10">
+              <CheckCircle2 className="h-7 w-7 text-blue-400" />
             </div>
-          );
-        })}
+
+            <div>
+              <p className="text-sm text-zinc-500">
+                Today Tasks
+              </p>
+
+              <h2 className="text-4xl font-bold">12</h2>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-6">
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500/10">
+              <Bell className="h-7 w-7 text-orange-400" />
+            </div>
+
+            <div>
+              <p className="text-sm text-zinc-500">
+                Pending Reminders
+              </p>
+
+              <h2 className="text-4xl font-bold">7</h2>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-6">
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10">
+              <User className="h-7 w-7 text-emerald-400" />
+            </div>
+
+            <div>
+              <p className="text-sm text-zinc-500">
+                Active Clients
+              </p>
+
+              <h2 className="text-4xl font-bold">18</h2>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* GRID */}
+      {/* MAIN GRID */}
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-        {/* CLIENTS */}
+        {/* TASKS */}
 
         <div className="xl:col-span-2 rounded-3xl border border-white/[0.06] bg-[#111318]">
-          <div className="flex items-center justify-between border-b border-white/[0.06] px-6 py-5">
-            <div>
-              <h3 className="text-xl font-bold">
-                Recent Clients
-              </h3>
+          <div className="border-b border-white/[0.06] px-6 py-5">
+            <h3 className="text-2xl font-bold">
+              Today Tasks
+            </h3>
 
-              <p className="mt-1 text-sm text-zinc-500">
-                Latest business activities and invoices
-              </p>
-            </div>
-
-            <button className="rounded-xl border border-white/[0.06] px-4 py-2 text-sm text-zinc-400 transition hover:bg-white/[0.04] hover:text-white">
-              View All
-            </button>
+            <p className="mt-1 text-sm text-zinc-500">
+              Your important daily work list
+            </p>
           </div>
 
           <div className="divide-y divide-white/[0.06]">
-            {recentClients.map((client) => (
+            {todayTasks.map((task) => (
               <div
-                key={client.name}
+                key={task.title}
                 className="flex items-center justify-between px-6 py-5"
               >
                 <div>
                   <h4 className="font-semibold">
-                    {client.name}
+                    {task.title}
                   </h4>
 
                   <p className="mt-1 text-sm text-zinc-500">
-                    {client.company}
+                    {task.time}
                   </p>
                 </div>
 
-                <div className="text-right">
-                  <p className="font-semibold">
-                    {client.amount}
-                  </p>
-
-                  <span
-                    className={`mt-2 inline-flex rounded-full px-3 py-1 text-xs font-medium ${
-                      client.status === "Paid"
-                        ? "bg-emerald-500/10 text-emerald-400"
-                        : "bg-orange-500/10 text-orange-400"
-                    }`}
-                  >
-                    {client.status}
-                  </span>
-                </div>
+                <span
+                  className={`rounded-full px-4 py-1 text-xs font-medium ${
+                    task.status === "Done"
+                      ? "bg-emerald-500/10 text-emerald-400"
+                      : task.status === "Important"
+                      ? "bg-orange-500/10 text-orange-400"
+                      : "bg-blue-500/10 text-blue-400"
+                  }`}
+                >
+                  {task.status}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ACTIVITY */}
+        {/* QUICK NOTES */}
 
         <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-6">
-          <h3 className="text-xl font-bold">
-            AI Insights
+          <div className="flex items-center gap-3">
+            <NotebookPen className="h-6 w-6 text-blue-400" />
+
+            <h3 className="text-2xl font-bold">
+              Quick Notes
+            </h3>
+          </div>
+
+          <div className="mt-6 space-y-4">
+            {quickNotes.map((note) => (
+              <div
+                key={note}
+                className="rounded-2xl border border-white/[0.06] bg-[#181B21] p-4 text-sm text-zinc-300"
+              >
+                {note}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* REMINDERS */}
+
+      <div className="rounded-3xl border border-white/[0.06] bg-[#111318]">
+        <div className="border-b border-white/[0.06] px-6 py-5">
+          <h3 className="text-2xl font-bold">
+            Client Reminders
           </h3>
 
-          <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-            Automated business intelligence generated from
-            client activities and financial workflows.
+          <p className="mt-1 text-sm text-zinc-500">
+            Upcoming follow-ups and pending work
           </p>
+        </div>
 
-          <div className="mt-8 space-y-4">
-            <div className="rounded-2xl border border-blue-500/10 bg-blue-500/10 p-4">
-              <p className="text-sm font-medium text-blue-300">
-                Revenue increased 18% this month.
-              </p>
-            </div>
+        <div className="divide-y divide-white/[0.06]">
+          {reminders.map((item) => (
+            <div
+              key={item.client}
+              className="flex items-center justify-between px-6 py-5"
+            >
+              <div>
+                <h4 className="font-semibold">
+                  {item.client}
+                </h4>
 
-            <div className="rounded-2xl border border-emerald-500/10 bg-emerald-500/10 p-4">
-              <p className="text-sm font-medium text-emerald-300">
-                12 pending invoices require follow-up.
-              </p>
-            </div>
+                <p className="mt-1 text-sm text-zinc-500">
+                  {item.work}
+                </p>
+              </div>
 
-            <div className="rounded-2xl border border-orange-500/10 bg-orange-500/10 p-4">
-              <p className="text-sm font-medium text-orange-300">
-                AI automation saved 14 working hours.
-              </p>
+              <div className="rounded-full bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-400">
+                {item.due}
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
