@@ -37,7 +37,7 @@ const clients = [
 
 export default function CRMPage() {
   return (
-    <div className="space-y-8">
+    <div className="min-h-screen bg-black p-8 text-white">
       {/* HEADER */}
 
       <div className="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between">
@@ -76,7 +76,7 @@ export default function CRMPage() {
 
       {/* CLIENT LIST */}
 
-      <div className="grid gap-6">
+      <div className="mt-8 grid gap-6">
         {clients.map((client) => (
           <div
             key={client.name}
