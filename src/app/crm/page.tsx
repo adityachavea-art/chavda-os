@@ -1,8 +1,8 @@
 export default function CRMPage() {
   return (
-    <div className="min-h-screen bg-black text-white p-10">
-      <h1 className="text-6xl font-bold text-green-400">
-        NEW CRM WORKING
+    <div style={{ background: "red", height: "100vh" }}>
+      <h1 style={{ color: "white", fontSize: "80px" }}>
+        ADITYA FINAL TEST
       </h1>
     </div>
   );
