@@ -39,9 +39,7 @@ const clients = [
 
 export default function CRMPage() {
   return (
-    <div className="space-y-8">
-
-      {/* HEADER */}
+    <div className="space-y-8 p-8 bg-black min-h-screen text-white">
 
       <div className="flex flex-col gap-8 xl:flex-row xl:items-center xl:justify-between">
 
@@ -51,96 +49,71 @@ export default function CRMPage() {
           </p>
 
           <h1 className="mt-3 text-6xl font-black tracking-tight">
-            CRM Workspace
+            Client Reminders
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
-            Manage clients, reminders, payments, tasks,
-            follow-ups and business communication from one
-            powerful personal workspace.
+            GST, TDS, ITR, reminders, payments and WhatsApp follow-ups
+            in one fast personal dashboard.
           </p>
         </div>
 
         <div className="flex items-center gap-4">
 
           <div className="flex h-14 w-[340px] items-center gap-3 rounded-2xl border border-white/[0.06] bg-[#111318] px-5">
-
             <Search className="h-5 w-5 text-zinc-500" />
 
             <input
               placeholder="Search client..."
               className="w-full bg-transparent text-sm outline-none placeholder:text-zinc-500"
             />
-
           </div>
 
           <button className="flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-4 text-sm font-medium text-white transition hover:bg-blue-500">
-
             <Plus className="h-5 w-5" />
-
             Add Client
-
           </button>
 
         </div>
 
       </div>
 
-      {/* STATS */}
-
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
         <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-7">
-
           <div className="flex items-center gap-3 text-emerald-400">
             <IndianRupee className="h-6 w-6" />
-
-            <p className="text-zinc-400">
-              Pending Payments
-            </p>
+            <p className="text-zinc-400">Pending Payments</p>
           </div>
 
           <h2 className="mt-4 text-6xl font-black text-emerald-400">
             ₹5,500
           </h2>
-
         </div>
 
         <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-7">
-
           <div className="flex items-center gap-3 text-orange-400">
             <CalendarDays className="h-6 w-6" />
-
-            <p className="text-zinc-400">
-              Upcoming Tasks
-            </p>
+            <p className="text-zinc-400">Upcoming Tasks</p>
           </div>
 
           <h2 className="mt-4 text-6xl font-black text-orange-400">
             3
           </h2>
-
         </div>
 
         <div className="rounded-3xl border border-white/[0.06] bg-[#111318] p-7">
-
           <div className="flex items-center gap-3 text-blue-400">
             <FileText className="h-6 w-6" />
-
-            <p className="text-zinc-400">
-              Active Clients
-            </p>
+            <p className="text-zinc-400">Active Clients</p>
           </div>
 
           <h2 className="mt-4 text-6xl font-black text-blue-400">
             12
           </h2>
-
         </div>
 
       </div>
-
-      {/* CLIENT LIST */}
 
       <div className="space-y-6">
 
@@ -148,12 +121,10 @@ export default function CRMPage() {
 
           <div
             key={client.name}
-            className="rounded-3xl border border-white/[0.06] bg-[#111318] p-8 transition hover:border-blue-500/20 hover:bg-[#141821]"
+            className="rounded-3xl border border-white/[0.06] bg-[#111318] p-8"
           >
 
             <div className="flex flex-col gap-8 xl:flex-row xl:items-center xl:justify-between">
-
-              {/* LEFT */}
 
               <div>
 
@@ -168,26 +139,18 @@ export default function CRMPage() {
                 <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-zinc-500">
 
                   <div className="flex items-center gap-2">
-
                     <Phone className="h-4 w-4" />
-
                     {client.phone}
-
                   </div>
 
                   <div className="flex items-center gap-2">
-
                     <CalendarDays className="h-4 w-4" />
-
                     Due: {client.due}
-
                   </div>
 
                 </div>
 
               </div>
-
-              {/* RIGHT */}
 
               <div className="flex flex-col items-start gap-4 xl:items-end">
 
